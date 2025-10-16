@@ -1,25 +1,29 @@
-import { useState } from 'react'
-import './App.css'
-import TaskForm from './Components/TaskForm'
-import TaskList from './Components/TaskList'
-import ProgressTracker from './Components/ProgressTracker'
 
-function App() {
-  
+import Taskform from "./Components/TaskForm";
+import TaskList from "./Components/TaskList";
+import ProgressTracker from "./Components/ProgressTracker";
+import { useEffect, useState } from "react";
 
-  return (
-    <>
-    <h1>Task Buddy</h1>
-    <p>
-      Your friendly TaskManager
-    </p>
-    <TaskForm />
-    <TaskList />
-    <ProgressTracker />
-    <button> ClearAll Tasks</button>
- 
-    </>
+export default function App() {
+  const [tasks, setTasks] = useState([]);
+
+  useEffect(() => {
+    localStorage.setItem
+    ("tasks", JSON.stringify(tasks))
+  });
+
+  const addTask = (task) => {
+    setTasks([...tasks,task]);
+  }
+
+  return(
+    <div>
+      <h1>Task Focus</h1>
+      <p>Our friendly TaskManager</p>
+      <Taskform addTask = {addTask}/>
+      <TaskList />
+      <Progresstracker />
+      <button>Clear all tasks</button>
+    </div>
   )
-} 
-
-export default App
+}
