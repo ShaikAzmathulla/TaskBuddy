@@ -1,6 +1,6 @@
 import { useState } from "react"
 
-export default function Taskform({addTask}) {
+export default function TaskForm({addTask}) {
     const[task, setTask] = useState('');
     const [priority, setPriority] = useState('medium');
     const [category, setCategory] = useState('general');
@@ -22,7 +22,6 @@ export default function Taskform({addTask}) {
                 value={task}
                 onChange={(e) => setTask(e.target.value)}/>
                 <button type="submit">Add Task</button>
-                <h1>{task} {priority} {category}</h1>
             </div>
 
             <div>
